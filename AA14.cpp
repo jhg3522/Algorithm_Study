@@ -1,35 +1,35 @@
 #include<iostream>
-#include<algorithm>
-#include<vector>
 using namespace std;
 
-int solution(vector<int> &A) {
-	int cnt = 0;
-	sort(A.begin(), A.end()); //오름차순 정렬
-	while (A[0] != 1) { // 처음 숫자 1일때 까지 -1
-		A[0]--;
-		cnt++;
+int reverse(int x) {
+	int a=0;
+	while (x > 0) {
+		a = (a * 10 + x % 10);
+		x /= 10;
 	}
-	for (int i = 0; i < A.size()-1; i++) {
-		if (A[i] == A[i + 1]) { //숫자 차이가 1이 아닐경우 -1
-			A[i + 1]++;
-			cnt++;
+	return a;
+}
+
+bool isPrime(int x) {
+	int i = 2;
+	if (x == 1) return false;
+	bool flag = true;
+	for (i; i*i <= x; i++) {
+		if (x%i == 0) {
+			flag = false;
+			break;
 		}
-		else if (A[i + 1] - A[i] != 1) { //같은 경우 뒤에꺼 +1
-			A[i + 1]--;
-			cnt++;
-		}
 	}
-	if (A[A.size() - 2] == A[A.size() - 1]) { //마지막 경우
-		A[A.size() - 1]++;
-		cnt++;
-	}
-	return cnt;
+	return flag;
 }
 
 int main() {
-	vector<int> A = { 6,2,3,5,6,3 };
-	cout << solution(A) << endl;
-
+	int N,t;
+	cin >> N;
+	while (N--) {
+		cin >> t;
+		if (isPrime(reverse(t)) == true)
+			cout << reverse(t) << " ";
+	}
 	return 0;
 }
