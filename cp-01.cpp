@@ -1,10 +1,4 @@
-
-#include<iostream>
-#include<vector>
-#include<algorithm>
-using namespace std;
-
-vector<int> max_mul(int i, int n) {
+//vector<int> max_mul(int i, int n) {
 	int mul=1;
 	vector<int> a;
 	vector<int> ans(2);
@@ -22,7 +16,7 @@ vector<int> max_mul(int i, int n) {
 	return ans;
 }
 
-int main() {
+//int main() {
 	int n,i;
 	int arr[2] = { 0,1 };
 	cin >> n;
@@ -32,6 +26,6 @@ int main() {
 			arr[0] = max_mul(i, n)[0];
 		}
 	}
-	cout << "[" << arr[0] << "," <<  arr[1] << "]";
+//	cout << "[" << arr[0] << "," <<  arr[1] << "]";
 
 }
