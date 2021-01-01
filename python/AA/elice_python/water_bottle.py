@@ -1,0 +1,8 @@
+a = int(input())
+b = int(input())
+c = int(input())
+min_Bottle = min(a,b,c)
+d = int(input())
+e = int(input())
+min_Lid = min(d,e)
+print(min_Lid+min_Bottle+10)
